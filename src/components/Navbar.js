@@ -7,7 +7,13 @@ function Navbar(props) {
         className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode} px-4 py-2 justify-content-between`}
       >
         <a href="/" className="text-decoration-none">
-          <h4 className="my-auto navbar-brand">Text Utils</h4>
+          <h4
+            className={`my-auto text-${
+              props.mode === "dark" ? "light" : "dark"
+            }`}
+          >
+            Text Utils
+          </h4>
           <p className={`text-${props.mode === "dark" ? "light" : "dark"}`}>
             by mewtwosenpaii
           </p>

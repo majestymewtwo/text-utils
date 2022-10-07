@@ -61,8 +61,12 @@ export default function TextArea(props) {
       >
         <h2>Utiltites for text</h2>
         <div class="mb-3">
-          <label htmlFor="exampleFormControlTextarea1" className="form-label">
-            Enter your text :
+          <label
+            htmlFor="exampleFormControlTextarea1"
+            className="form-label mb-4"
+          >
+            Word Counter - Character Counter - Text File Converter - Character
+            Case Converter - Whitespace remover - Text to speech
           </label>
           <textarea
             class="form-control"
@@ -79,6 +83,7 @@ export default function TextArea(props) {
           <div className="my-4 d-flex flex-column col-8 mx-auto flex-lg-row col-lg-10">
             {/* Button 1 */}
             <button
+              disabled={text.length === 0}
               type="button"
               class={`btn btn-outline-${
                 props.mode === "dark" ? "light" : "dark"
@@ -89,6 +94,7 @@ export default function TextArea(props) {
             </button>
             {/* Button 2 */}
             <button
+              disabled={text.length === 0}
               type="button"
               class={`btn btn-outline-${
                 props.mode === "dark" ? "light" : "dark"
@@ -99,6 +105,7 @@ export default function TextArea(props) {
             </button>
             {/* Button 3 */}
             <button
+              disabled={text.length === 0}
               type="button"
               class={`btn btn-outline-${
                 props.mode === "dark" ? "light" : "dark"
@@ -109,6 +116,7 @@ export default function TextArea(props) {
             </button>
             {/* Button 4 */}
             <button
+              disabled={text.length === 0}
               type="button"
               class={`btn btn-outline-${
                 props.mode === "dark" ? "light" : "dark"
@@ -119,6 +127,7 @@ export default function TextArea(props) {
             </button>
             {/* Button 5 */}
             <button
+              disabled={text.length === 0}
               type="button"
               class={`btn btn-outline-${
                 props.mode === "dark" ? "light" : "dark"
@@ -129,6 +138,7 @@ export default function TextArea(props) {
             </button>
             {/*Button 6*/}
             <button
+              disabled={text.length === 0}
               type="button"
               class={`btn btn-outline-${
                 props.mode === "dark" ? "light" : "dark"
@@ -144,7 +154,12 @@ export default function TextArea(props) {
 
         <h4>Text Summary</h4>
         <p>
-          {text.split(" ").length} words and {text.length} characters
+          {
+            text.split(" ").filter((element) => {
+              return element.length !== 0;
+            }).length
+          }{" "}
+          words and {text.length} characters
         </p>
         <hr className="col-10 mx-auto" />
 
